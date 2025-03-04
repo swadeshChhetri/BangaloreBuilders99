@@ -164,7 +164,7 @@ const PropertyForm = () => {
           <h2 className="text-2xl font-semibold mb-4">Welcome back Swadesh,</h2>
           <p className="text-lg text-gray-600 mb-4">Fill out basic details</p>
     
-          <p className="font-medium mb-2">I'm looking to</p>
+          <p className="font-medium mb-2">I&apos;m looking to</p>
           <div className="flex gap-2 mb-4">
             {["Sell", "Rent / Lease", "PG"].map((option) => (
               <button
