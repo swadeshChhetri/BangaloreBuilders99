@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Poppins, Open_Sans } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 
 // Example: Poppins for headings, Open Sans for body
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
+// const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export const metadata: Metadata = {

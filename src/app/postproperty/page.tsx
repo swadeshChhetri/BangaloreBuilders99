@@ -3,7 +3,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { CheckCircle, Circle } from "lucide-react";
-import { ArrowLeft } from "lucide-react";
 import { UploadCloud, MessageSquare } from 'lucide-react';
 import { useDropzone } from 'react-dropzone';
 
@@ -79,24 +78,24 @@ const PropertyForm = () => {
   };
 
   // ✅ Fixed handleFileChange function
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setFormData((prev) => ({ ...prev, files: e.target.files }));
-    }
-  };
+  // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files) {
+  //     setFormData((prev) => ({ ...prev, files: e.target.files }));
+  //   }
+  // };
 
-  const handleCategorySelection = (category: string) => {
-    setSelectedCategory(category);
-    setFormData((prev) => ({ ...prev, propertyType: category }));
-  };
+  // const handleCategorySelection = (category: string) => {
+  //   setSelectedCategory(category);
+  //   setFormData((prev) => ({ ...prev, propertyType: category }));
+  // };
 
   // ✅ Fixed handleCheckboxChange function
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      amenities: { ...prev.amenities, [e.target.name]: e.target.checked },
-    }));
-  };
+  // const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     amenities: { ...prev.amenities, [e.target.name]: e.target.checked },
+  //   }));
+  // };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
