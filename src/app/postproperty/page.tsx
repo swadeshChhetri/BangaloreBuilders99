@@ -69,13 +69,18 @@ const PropertyForm = () => {
   };
 
   // ✅ Fixed handleChange function
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type, checked } = e.target;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, type, value } = e.target;
+  
+    // Handle checkboxes separately
+    const checked = e.target instanceof HTMLInputElement ? e.target.checked : undefined;
+  
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+  
 
   // ✅ Fixed handleFileChange function
   // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -112,10 +117,10 @@ const PropertyForm = () => {
     if (step > 0) setStep(step - 1);
   };
 
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState<File[]>([]);
   
-  const onDrop = (acceptedFiles) => {
-    setFiles([...files, ...acceptedFiles]);
+  const onDrop = (acceptedFile: File[]) => {
+    setFiles((prevFiles) => [...prevFiles, ...acceptedFile]);
   };
   
   const { getRootProps, getInputProps } = useDropzone({
