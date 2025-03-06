@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, ChevronLeft, ChevronRight } from "lucide-react";
-import Link from 'next/link';
 // import { MessageCircle, X, Send } from 'lucide-react';
 import MobileNavbar from '@/components/mobileNavbar';
 
