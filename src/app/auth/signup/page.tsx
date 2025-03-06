@@ -64,9 +64,13 @@ export default function Register() {
       console.log("User registered successfully:", response.data);
       alert("User registered successfully");
       router.push("/signin");
-    } catch (error: any) {
-      console.error("Registration failed", error.response?.data || error);
-      alert("Registration failed! Check console for details.");
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        console.error("Login failed:", error.response?.data || error.message);
+      } else {
+        console.error("An unexpected error occurred:", error);
+      }
+      alert("Login failed! Check the console for details.");
     }
   };
 
