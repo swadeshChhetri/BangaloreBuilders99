@@ -16,11 +16,11 @@ export default function Login() {
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-     // Reset previous errors
-     setEmailError("");
-     setPasswordError("");
+    // Reset previous errors
+    setEmailError("");
+    setPasswordError("");
 
-      // Validation
+    // Validation
     if (!email) setEmailError("Email is required");
     if (!password) setPasswordError("Password is required");
 
@@ -48,8 +48,12 @@ export default function Login() {
       alert("Logged in successfully!");
       router.push("/");
       // You might want to redirect the user or save authentication data here.
-    } catch (error: any) {
-      console.error("Login failed:", error.response?.data || error.message);
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        console.error("Login failed:", error.response?.data || error.message);
+      } else {
+        console.error("An unexpected error occurred:", error);
+      }
       alert("Login failed! Check the console for details.");
     }
   };

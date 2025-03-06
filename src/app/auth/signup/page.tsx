@@ -39,7 +39,7 @@ export default function Register() {
     try {
 
       // First, get the CSRF cookie
-      let checking = await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
+      const checking = await axios.get("http://localhost:8000/sanctum/csrf-cookie", {
         withCredentials: true,
       });
       console.log(checking);
