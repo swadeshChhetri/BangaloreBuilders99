@@ -1,28 +1,3 @@
-// export default function PropertyHeading() {
-//   return (
-
-//   );
-// }
-
-// export default function ProductDetails() {
-//   return (
-   
-//   );
-// }
-
-
-// import React from "react";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { FaRulerCombined, FaHome, FaRupeeSign, FaBuilding, FaEye, FaMapMarkerAlt, FaCompass } from "react-icons/fa";
-
-// const PropertyDetails = () => {
-//   return (
-   
-//   );
-// };
-
-// export default PropertyDetails;
-
 export default function PropertyDetails() {
   return (
     <>

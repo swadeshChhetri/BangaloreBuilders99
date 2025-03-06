@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Heart, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from 'next/link';
 // import { MessageCircle, X, Send } from 'lucide-react';
+import MobileNavbar from '@/components/mobileNavbar';
 
 const properties = [
   {
@@ -147,18 +148,13 @@ export default function Home() {
                   <Heart className={`h-6 w-6 ${liked[property.id] ? "text-pink-500 fill-pink-500" : "text-gray-400"}`} />
                 </button>
                 <div className="p-3">
-                  <span className="bg-gray-200 text-black px-2 py-1 text-sm rounded absolute bottom-36 left-2">
+                  <span className="bg-gray-200 text-black px-2 py-1 text-sm rounded absolute top-2 left-2">
                     {property.price}
                   </span>
                   <h3 className="text-lg font-semibold mt-3">{property.title}</h3>
                   <p className="text-gray-600 text-sm">{property.location}</p>
                   <p className="text-gray-400 text-xs mt-1">{property.posted}</p>
                 </div>
-                <Link href="/products">
-                  <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
-                    View All
-                  </button>
-                </Link>
               </div>
 
             ))}
@@ -178,34 +174,51 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full p-6">
+      <div className="w-full p-6 pt-20">
         <h2 className="text-2xl font-bold">Recommended Projects</h2>
         <p className="text-gray-500 mb-4">Curated especially for you</p>
-        <div className="grid grid-cols-3 gap-4">
-          {properties.map((property) => (
-            <div
-              key={property.id}
-              className="bg-white shadow-md rounded-lg overflow-hidden relative transition-transform"
-            >
-              <motion.div whileHover={{ scale: 1.05 }}>
-                <img src={property.image} alt={property.title} className="w-full h-40 object-cover" />
-              </motion.div>
-              <button onClick={() => toggleLike(property.id)} className="absolute top-2 right-2 bg-white p-1 rounded-full">
-                <Heart className={`h-6 w-6 ${liked[property.id] ? "text-pink-500 fill-pink-500" : "text-gray-400"}`} />
-              </button>
-              <div className="p-3">
-                <span className="bg-gray-200 text-black px-2 py-1 text-sm rounded absolute bottom-36 left-2">
-                  {property.price}
-                </span>
-                <h3 className="text-lg font-semibold mt-3">{property.title}</h3>
-                <p className="text-gray-600 text-sm">{property.location}</p>
-                <p className="text-gray-400 text-xs mt-1">{property.posted}</p>
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            className="flex gap-4"
+            style={{ width: `${properties.length * 260}px` }}
+            animate={{ x: -scrollPosition }}
+            transition={{ type: "tween", duration: 0.5 }}
+          >
+            {properties.map((property) => (
+              <div
+                key={property.id}
+                className="min-w-[250px] bg-white shadow-md rounded-lg overflow-hidden relative transition-transform transform hover:scale-105"
+              >
+                <Image src={property.image} alt={property.title} className="w-full h-40 object-cover" width={200} height={200} />
+                <button onClick={() => toggleLike(property.id)} className="absolute top-2 right-2 bg-white p-1 rounded-full">
+                  <Heart className={`h-6 w-6 ${liked[property.id] ? "text-pink-500 fill-pink-500" : "text-gray-400"}`} />
+                </button>
+                <div className="p-3">
+                  <span className="bg-gray-200 text-black px-2 py-1 text-sm rounded absolute top-2 left-2">
+                    {property.price}
+                  </span>
+                  <h3 className="text-lg font-semibold mt-3">{property.title}</h3>
+                  <p className="text-gray-600 text-sm">{property.location}</p>
+                  <p className="text-gray-400 text-xs mt-1">{property.posted}</p>
+                </div>
               </div>
-            </div>
-          ))}
+
+            ))}
+          </motion.div>
+          <button
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-2 rounded-full"
+            onClick={scrollLeft}
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-2 rounded-full"
+            onClick={scrollRight}
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
       </div>
-
 
       <div className="w-full p-6">
         <h2 className="text-2xl font-bold">Localities you may like</h2>
@@ -287,34 +300,52 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full p-6">
-        <h2 className="text-2xl font-bold">Projects in High Demand</h2>
+      <div className="w-full p-6 pt-20">
+        <h2 className="text-2xl font-bold">Properties in High Demand</h2>
         <p className="text-gray-500 mb-4">Curated especially for you</p>
-        <div className="grid grid-cols-3 gap-4">
-          {properties.map((property) => (
-            <div
-              key={property.id}
-              className="bg-white shadow-md rounded-lg overflow-hidden relative transition-transform"
-            >
-              <motion.div whileHover={{ scale: 1.05 }}>
-                <img src={property.image} alt={property.title} className="w-full h-40 object-cover" />
-              </motion.div>
-              <button onClick={() => toggleLike(property.id)} className="absolute top-2 right-2 bg-white p-1 rounded-full">
-                <Heart className={`h-6 w-6 ${liked[property.id] ? "text-pink-500 fill-pink-500" : "text-gray-400"}`} />
-              </button>
-              <div className="p-3">
-                <span className="bg-gray-200 text-black px-2 py-1 text-sm rounded absolute bottom-36 left-2">
-                  {property.price}
-                </span>
-                <h3 className="text-lg font-semibold mt-3">{property.title}</h3>
-                <p className="text-gray-600 text-sm">{property.location}</p>
-                <p className="text-gray-400 text-xs mt-1">{property.posted}</p>
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            className="flex gap-4"
+            style={{ width: `${properties.length * 260}px` }}
+            animate={{ x: -scrollPosition }}
+            transition={{ type: "tween", duration: 0.5 }}
+          >
+            {properties.map((property) => (
+              <div
+                key={property.id}
+                className="min-w-[250px] bg-white shadow-md rounded-lg overflow-hidden relative transition-transform transform hover:scale-105"
+              >
+                <Image src={property.image} alt={property.title} className="w-full h-40 object-cover" width={200} height={200} />
+                <button onClick={() => toggleLike(property.id)} className="absolute top-2 right-2 bg-white p-1 rounded-full">
+                  <Heart className={`h-6 w-6 ${liked[property.id] ? "text-pink-500 fill-pink-500" : "text-gray-400"}`} />
+                </button>
+                <div className="p-3">
+                  <span className="bg-gray-200 text-black px-2 py-1 text-sm rounded absolute top-2 left-2">
+                    {property.price}
+                  </span>
+                  <h3 className="text-lg font-semibold mt-3">{property.title}</h3>
+                  <p className="text-gray-600 text-sm">{property.location}</p>
+                  <p className="text-gray-400 text-xs mt-1">{property.posted}</p>
+                </div>
               </div>
-            </div>
-          ))}
+
+            ))}
+          </motion.div>
+          <button
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-2 rounded-full"
+            onClick={scrollLeft}
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-2 rounded-full"
+            onClick={scrollRight}
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
       </div>
-
+     <MobileNavbar/>
     </>
 
   );

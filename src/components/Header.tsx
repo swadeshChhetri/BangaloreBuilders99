@@ -1,8 +1,9 @@
 'use client'
 import { useState } from "react";
-import { ChevronDown, ChevronUp, Search, Menu, User } from "lucide-react";
+import { ChevronDown, ChevronUp, Search, Menu, User} from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -10,12 +11,12 @@ export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full bg-blue-700 text-white flex items-center justify-between p-4 shadow-lg z-[4]">
+    <nav className="fixed w-full bg-blue-700 text-white flex items-center justify-between p-2 shadow-lg z-[100]">
       {/* Logo */}
-      <Link href={"/products"} className="text-2xl font-bold">BangloreBuilders99</Link>
+      <Link href={"/products"} className="text-2xl font-bold"><Image className="rounded" src={"/images/logo.jpg"} alt="Logo" width={55} height={40}></Image></Link>
 
       {/* Location Dropdown */}
-      <div className="relative">
+      <div className="relative max-md:hidden">
         <button
           className="flex items-center gap-1 text-white hover:text-gray-300"
           onClick={() => setDropdownOpen(!isDropdownOpen)}
@@ -36,7 +37,7 @@ export default function Header() {
       </div>
 
       {/* Search Bar */}
-      <div className="flex items-center bg-white text-black rounded-md overflow-hidden">
+      <div className="flex items-center bg-white text-black rounded-md overflow-hidden max-[480px]:w-[74%]">
         <select className="p-2 bg-gray-200 border-r">
           <option>Buy</option>
           <option>Rent</option>
@@ -52,27 +53,48 @@ export default function Header() {
       </div>
 
       {/* Post Property */}
-      <a href="/postproperty" className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
+      <a href="/postproperty" className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 max-md:hidden">
         Post Property
       </a>
 
       {/* User Icon */}
-      <div className="relative">
-        <button onMouseEnter={() => setUserMenuOpen(true)} onMouseLeave={() => setUserMenuOpen(false)}>
+      <div
+        className="relative group max-[480px]:hidden"
+        onMouseEnter={() => setUserMenuOpen(true)}
+        onMouseLeave={() => setUserMenuOpen(false)}
+      >
+        <button>
           <User className="text-white" />
         </button>
+
         {isUserMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute right-0 mt-2 w-40 bg-white text-black shadow-md rounded-md p-2"
+            className="absolute -right-[87px] -mt-[1px] w-40 bg-white text-black shadow-md rounded-md p-2 text-sm"
           >
-            <a href="#" className="block px-4 py-2 hover:bg-gray-200">Profile</a>
-            <a href="#" className="block px-4 py-2 hover:bg-gray-200">Logout</a>
+            <Link href={"/dashboard/editprofile"} className="block px-4 py-2 hover:bg-gray-200">Profile</Link>
+            <Link href={"/dashboard"} className="block px-4 py-2 hover:bg-gray-200">Dashboard</Link>
+            <Link href={"/dashboard/wishlist"} className="block px-4 py-2 hover:bg-gray-200">Wishlist</Link>
+            <Link href={"/dashboard/support"} className="block px-4 py-2 hover:bg-gray-200">Support & help</Link>
+            <Link href={"/"} className="block px-4 py-2 hover:bg-gray-200">Logout</Link>
           </motion.div>
         )}
       </div>
+     <div className="max-md:hidden flex">
+      <button className="font-semibold flex  rounded-xl p-1">
+        <Link href="/auth/signup">
+          Sign Up
+        </Link>
+      </button>
+      <button className="bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold ">
+        <Link href="/auth/signin">
+          Sign In
+        </Link>
+      </button>
+      </div>
+
 
       {/* Mobile Menu */}
       <div className="relative">

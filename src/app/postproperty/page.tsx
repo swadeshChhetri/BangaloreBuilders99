@@ -131,9 +131,9 @@ const PropertyForm = () => {
   });
 
   return (
-    <div className="flex min-h-screen bg-gray-100 pt-16">
+    <div className="flex bg-gray-100 pt-16">
       {/* Sidebar */}
-      <aside className="w-1/4 bg-white p-6 shadow-md">
+      <aside className="fixed left-0 h-full w-1/4 bg-white p-6 shadow-md">
         <h2 className="text-lg font-semibold mb-4">Post Your Property</h2>
         <div className="space-y-4">
           {steps.map((item, index) => (
@@ -158,7 +158,7 @@ const PropertyForm = () => {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -50 }}
         transition={{ duration: 0.4 }}
-        className="w-3/4 p-8 bg-white shadow-md"
+        className="w-3/4 p-8 bg-white shadow-md ml-96"
       >
         <button className="text-gray-600 mb-4" onClick={prevStep} disabled={step === 0}>
           &larr; Back
