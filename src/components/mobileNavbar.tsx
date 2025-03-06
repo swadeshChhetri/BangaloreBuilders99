@@ -19,7 +19,8 @@ export default function MobileNavbar() {
       </div>
 
       {/* Floating Action Button */}
-      <div className="absolute -top-[26px] left-[231px] transform -translate-x-1/2">
+      <div className="relative">
+      <div className="absolute -top-[36px] left-[22px] transform -translate-x-1/2">
         <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg border-4 border-white">
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 5v14m7-7H5" stroke="white" strokeWidth="2" strokeLinecap="round" />
@@ -30,6 +31,7 @@ export default function MobileNavbar() {
       {/* Sell/Rent */}
       <div className="flex flex-col items-center text-gray-600 pt-4">
         <span className="text-xs font-medium">Sell/Rent</span>
+      </div>
       </div>
 
       {/* Shortlisted */}
