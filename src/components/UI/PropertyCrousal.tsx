@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
+import {Heart } from "lucide-react";
 import Carousel from "./Crousel";
 
 interface Property {

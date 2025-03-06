@@ -1,6 +1,5 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Heart } from "lucide-react";
 // import { MessageCircle, X, Send } from 'lucide-react';
 import MobileNavbar from '@/components/mobileNavbar';
 import { PropertyCarousel } from '@/components/UI/PropertyCrousal';
