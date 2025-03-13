@@ -111,7 +111,7 @@ export default function Header() {
             <button className="absolute top-2 right-2" onClick={() => setMobileMenuOpen(false)}>
               ✖
             </button>
-            <a href="#" className="block px-4 py-2 hover:bg-gray-200">Option 1</a>
+            <Link href={"/aboutus"} className="block px-4 py-2 hover:bg-gray-200">About Us</Link>
             <a href="#" className="block px-4 py-2 hover:bg-gray-200">Option 2</a>
           </motion.div>
         )}
