@@ -83,7 +83,7 @@ export default function Header() {
         )}
       </div>
      <div className="max-md:hidden flex">
-      <button className="font-semibold flex  rounded-xl p-1">
+      <button className="font-semibold flex  rounded-xl bg-[#f3f3f6] text-black p-[7px] text-[14px]">
         <Link href="/auth/signup">
           Sign Up
         </Link>

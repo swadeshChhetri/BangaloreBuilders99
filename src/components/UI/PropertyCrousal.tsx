@@ -2,8 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import {Heart } from "lucide-react";
-import Carousel from "./Crousel";
+import { Heart } from "lucide-react";
+import Carousel from "./ManualSlider";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 
 interface Property {
   id: number;
@@ -20,7 +26,7 @@ interface PropertyCarouselProps {
   items: Property[];
 }
 
-export const PropertyCarousel: React.FC<PropertyCarouselProps> = ({ title, description, items }) => {
+export default function PropertyCarousel({ title, description, items }: PropertyCarouselProps) {
   const [liked, setLiked] = useState<Record<number, boolean>>({});
 
 
@@ -29,7 +35,7 @@ export const PropertyCarousel: React.FC<PropertyCarouselProps> = ({ title, descr
   };
 
   return (
-    <div className="w-full p-6 pt-20 relative">
+    <div className="w-full p-6 pt-30 relative">
       <h2 className="text-2xl font-bold">{title}</h2>
       <p className="text-gray-500 mb-4">{description}</p>
 

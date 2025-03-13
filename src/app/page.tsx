@@ -2,8 +2,10 @@
 import { motion } from 'framer-motion';
 // import { MessageCircle, X, Send } from 'lucide-react';
 import MobileNavbar from '@/components/mobileNavbar';
-import { PropertyCarousel } from '@/components/UI/PropertyCrousal';
-import Carousel from '@/components/UI/Crousel';
+// import { PropertyCarousel } from '@/components/UI/PropertyCrousal';
+import Carousel from '@/components/UI/ManualSlider';
+import FullWidthBanner from '@/components/UI/FUllWidthBanner';
+import PropertyCarousel from '@/components/UI/PropertyCrousal';
 
 const recommendedProperties = [
   {
@@ -164,9 +166,10 @@ export default function Home() {
 
   return (
     <>
-      <PropertyCarousel title="Recommended Properties" description="Best choices for you" items={recommendedProperties} />
+      <FullWidthBanner />
+      <PropertyCarousel title="Preferred Properties" description="Best choices for you" items={recommendedProperties} />
 
-      <PropertyCarousel title="Recommended Projects" description="Best choices for you" items={recommendedProperties} />
+      <PropertyCarousel title="Preferred Projects" description="Best choices for you" items={recommendedProperties} />
 
       <div className="w-full p-6">
         <h2 className="text-2xl font-bold">Localities you may like</h2>

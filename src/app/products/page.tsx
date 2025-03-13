@@ -34,7 +34,7 @@ export default function ProductCard() {
   return (
     <div className="flex pt-20">
       {/* Sidebar */}
-      <div className="fixed left-0 h-full w-1/4 p-4 bg-white shadow-lg rounded-xl border h-fit">
+      <div className="fixed left-0 h-full w-1/4 p-4 bg-white shadow-lg rounded-xl border ">
         {/* Property Type Section */}
         <div className="mb-4">
           <h2 className="text-lg font-semibold mb-2">Type of property</h2>

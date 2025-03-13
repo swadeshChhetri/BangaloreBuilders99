@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 // Example: Poppins for headings, Open Sans for body
 // const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
@@ -24,6 +25,7 @@ export default function RootLayout({
       >
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

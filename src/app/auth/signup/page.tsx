@@ -166,7 +166,7 @@ export default function Register() {
         </form>
         <p className="text-xs text-center text-gray-500 mt-4">
           By clicking “Sign Up”, you acknowledge that you have read and
-          understood, and agree to KONNKT’s
+          understood, and agree to BangaloreBuilders99’s
           <a href="#" className="text-blue-600">
             {" "}
             Terms and Conditions{" "}
